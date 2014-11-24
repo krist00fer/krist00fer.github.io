@@ -10,7 +10,7 @@ description: > # this means to ignore newlines until "baseurl:"
   point-in-time snapshot, you should not consider out of date posts to
   reflect current thoughts and opinions.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://krist00fer.github.io" # the base hostname & protocol for your site
+url: "http://www.krist00fer.com" # the base hostname & protocol for your site
 twitter_username: krist00fer
 github_username:  krist00fer
 timezone: Europe/Stockholm
