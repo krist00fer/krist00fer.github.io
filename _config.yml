@@ -1,14 +1,18 @@
 # Site settings
-title: Your awesome title
+title: krist00fer
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  My thoughts on all and nothing. All postings on this weblog, including:
+  code, scripts, labs, demos and other items are provided "AS IS" with no
+  warranties, and confer no rights. This weblog does not represent the
+  thoughts, intentions, plans or strategies of Microsoft. It is solely my
+  opinion. Because a weblog is intended to provide a semi-permanent
+  point-in-time snapshot, you should not consider out of date posts to
+  reflect current thoughts and opinions.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://krist00fer.github.io" # the base hostname & protocol for your site
+twitter_username: krist00fer
+github_username:  krist00fer
 
 # Build settings
 markdown: kramdown
