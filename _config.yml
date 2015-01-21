@@ -1,14 +1,9 @@
 # Site settings
-title: krist00fer
-email: your-email@domain.com
+title: k00.io
+email: kristofer.liljeblad@live.com
 description: > # this means to ignore newlines until "baseurl:"
-  My thoughts on all and nothing. All postings on this weblog, including:
-  code, scripts, labs, demos and other items are provided "AS IS" with no
-  warranties, and confer no rights. This weblog does not represent the
-  thoughts, intentions, plans or strategies of Microsoft. It is solely my
-  opinion. Because a weblog is intended to provide a semi-permanent
-  point-in-time snapshot, you should not consider out of date posts to
-  reflect current thoughts and opinions.
+  	Kristofer Liljeblad’s, Senior Program Manager at Microsoft, view on just about anything. Opinions are mine and
+  	might not represent my employer’s. Content on this blog are provided “as is” with no warranties what so ever.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://krist00fer.com" # the base hostname & protocol for your site
 twitter_username: krist00fer
