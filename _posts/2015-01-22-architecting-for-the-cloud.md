@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "Architecting for the cloud"
+date:   2015-01-21 11:00:00
+categories: architecture cloud azure
+---
+#Do I really need to do anything special?
+
+I’ve been working with the cloud computing for the last 6-7 years and especially Microsoft Azure. Back when Azure was first introduced at the PDC in LA, 2008, we didn’t have that many services to choose from and depending on what you used and how you used it you could really get big differences in performance and pricing. In order to use those few services that where available, you had to adapt your solution to conform to a specific architecture and/or implementation. If someone asked me at that time: Do I need to adapt my architecture for “the cloud”? I would have answered: Yes you do!
+
+Fast forward to today, January 2015, and have a look at the services and pricing available in Microsoft Azure and once again ask the same question: Do I need to adapt my architecture for “the cloud”? I would probably say: No, you don’t!
+
+So how can I come with that bold statement now, which I argued against before? There are two major things that could and should drive the architecture of a solution and the one I’d like to talk about first is: Tools or Services.
+
+If you have a square peg and a round hole, you probably need to adapt. If you can’t transform the round hole to a square hole, then you have to let go of the idea of using a square peg. Even if a square peg would be nicer to look at, more reliable or just because you wanted it to be square. It doesn’t matter, you have to adapt your design or architecture to fit in the “hole”. So back in 2008 if Azure only provided “one way” of communicating with a background service (Worker Role) then you would have to adapt your implementation and perhaps even your architecture to fit with the tools and services that was provided for you.
+
+With all the new services and tools available today in Microsoft Azure, we hardy never run into those “square peg in a round hole” issues and if the problem comes up you can almost always implement it with custom Virtual Machines. There are off course implementation details that you should think about, that are more useful when you build for the cloud but most of them are important otherwise as well. So if our tools allow us to deploy implementations of architectures that we are used to run on-premises then what else is it that might influence us to create special architecture for the cloud? You guessed it right: Requirements!
+
+I’ll argue that requirements is or should be the main driver of architecture and implementations. It doesn’t matter if it’s a solution in the cloud or on your local lap top. The cost efficient flexibility of the cloud enables people to think of requirements that was previously not realistic. Think of the following none functional requirements: 
+
+-	“The compute power used should closely follow the number of concurrent end users”
+-	“Datacenter security and support should be best in class from day one”
+-	“Users should have world class performance and user experience no matter from where in the world they connect”.
+-	“A new customer should be able to onboard the service through a self-service portal in minutes.”
+
+These are some requirements that we didn’t think about a couple of years ago or we didn’t see them as feasible to implement, but the cloud and the way we have gotten used to access services has gotten us to think about them since we now a days feel that we actually can realize them. But if we would think of the above requirements, disregard the fact that it might not be economical and decided to deploy using privately owned machines around the world, would the software architecture be any different than if you were to deploy in the public cloud, like Microsoft Azure? The answer is probably: No! You would need the same or very similar architecture.
+
+So with new requirements we might need new architectures that can handle: high latency between clients and servers, synchronization of data between datacenters, the ability to handle transient errors, etc. Those are requirements that might drive an architecture, but the architecture is not driven by the cloud.
+
+Why do I think this is important? Why do I keep nagging about the fact that it’s the requirements that drive architecture and design rather than “the cloud”? In my work, I help ISVs implement and succeed in the cloud and I’ve seen quite a few solutions, both good and bad once. I’ve read articles and listened to people that “knows” how to architect for the cloud but many times I find that they are in fact talking about implementation details. Quite often these people are really skilled at a particular area or service in the cloud and to quote Abraham Maslow: “I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail”. If you, like me, have a lot of experience in using Platform as a Service on Azure, then you might be tempted to say that Azure Mobile Services is the best way to build a mobile backend. And indeed it might be part of an awesome architecture, but you can’t really tell how a good architecture or design look like unless you know what’s demanded of it. It would be like saying: “I know how your database should be designed”. Ok, fine. Show me then! What tables should I have? What columns should be in my indexes? Should I use Stored Procedures or not? Should it even be a relational database?
+
+You see my point? You can be good at using a specific tool or service, but I would argue that most of those tools need consideration of the requirements before you start using them. Just because you have an understanding of every service available in Microsoft Azure, you can’t really say that you know how a good architecture looks for an unknown use case. You need the requirements first.
+
+Having an architecture that relies on a single instance VM isn’t necessary a bad architecture, but you’ve been told not to have single instance roles in your architecture right? Fully automated and scalable architectures can absolutely be implemented on IaaS, but you might have heard someone say that it’s “only” possible using PaaS. A database without support for ACID Transactions might very well be the best solution for storing bank transactions, even though it’s the classic sample of why you should have transactions. The “correct” architecture for the same problem with the same requirements can even look different if implemented twice. Consider the following requirement: “Developers and operators should work with programming languages, tools and services that are already in use within the company”. You see, the requirements make a difference.
+
+Anyone that have listened to me talking about this subject have probably heard me saying: “Design for the cloud and run anywhere”, doesn’t that go against everything I’ve just written? No it doesn’t. When I say “design for the cloud” I want you to think about the requirements that a public cloud service might have and design your architecture and application around those requirements. Think about: multi tenancy, self-serviced sign up, authentication, data replication, security, etc. And when I say “think about” I really mean consider it, you don’t necessary have to implement multi tenancy, but just consider how you would do it if you had to. If you then decide to deploy that solution as a private application or in a public cloud like Microsoft Azure doesn’t really matter. It’s probably the same or very similar architecture.
+
+A migration to the cloud from a system that has already been running for a long time on-premises might feel differently, but once again think of it: Is it really the cloud that demands another architecture or is it new or previous requirements that have surfaced?
+
+So am I saying that there is nothing special with Microsoft Azure and building Cloud Services? On the contrary it is a lot to know and not at all an easy thing to do. There are architecture patterns that are good to handle high latency scenarios and others that will help you with multi tenancy, etc. There are many tools and services that you need to explore and know about in order to make wise implementation decisions, but the architecture will be driven by the requirements.
+
+-	Does a single tenant application running on-premises inside the corporate firewall need to have a revamped architecture in order to be hosted in the cloud? Probably not, but it depends on the requirements. 
+-	Does a multitenant, globally deployed, high available service have different architectural needs than a single tenant application running behind the corporate firewall? Probably, but it depends on the requirements.
+-	If I run game servers in the cloud on auto provisioned single instance Linux VMs, using the same tools and binaries as when I host the servers on-premises, is that as good an architecture as something that was written especially for the cloud? It probably is, but it depends on the requirements.
+
+With this article I hope I’ve convinced you that cloud platforms like Microsoft Azure don’t drive your application’s architecture, but rather open up the possibilities for new requirements.
