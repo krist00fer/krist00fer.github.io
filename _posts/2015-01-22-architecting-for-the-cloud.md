@@ -2,7 +2,7 @@
 layout: post
 title:  "Architecting for the cloud"
 date:   2015-01-21 11:00:00
-categories: architecture cloud azure
+categories: post
 ---
 #Do I really need to do anything special?
 
